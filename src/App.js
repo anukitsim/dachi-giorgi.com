@@ -41,7 +41,7 @@ const App = () => {
           path="/invasive-modification"
           element={<InvasiveModification />}
         />
-        <Route path="//STEPS" element={<Steps />} />
+        <Route path="/STEPS" element={<Steps />} />
         <Route path="/hyphen" element={<Hyphen />} />
         <Route path="/i-need-protection" element={<Protection />} />
         <Route path="/obj" element={<Obj />} />
