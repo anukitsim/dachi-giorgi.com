@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+  }
+  
+  
+  
+  
+  
+  
+  .thewitness-body {
+    background-color: #dfdfdf;
+  }
+  
+  .STEPS-body {
+    background-color: #dfdfdf;
+  }
+  
+  .obj-body {
+    background-color: #dfdfdf;
+  }
+  
+  .dead-vase-body {
+    background-color: #dfdfdf;
+  }
+  
+  .broken-city-body {
+    background-color: #dfdfdf;
+  }
+  
+  .i-need-protection-body{
+    background-color: #080808;
+  }
+  .invasive-modification-body {
+    background-color: #080808;
+  }
+  
+  .french-lessons-body{
+    background-color: #080808;
+  }
+  
+  .garbage-throne-body{
+    background-color: #dfdfdf;
+  }
+  
+  .about-body{
+    background-color: #dfdfdf;
+  }
+  
+  .home-container {
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.5rem;
+    z-index: 0;
+    max-width: 22.5rem;
+    max-height: 31.25rem;
+  }
+  
+  
+  
+  .background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .background-video,
+  .background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  .background-gif {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    width: 100%;
+    height: 200vh;
+  
+    
+  
+    
+  }
+  
+  
+  .background-img {
+    opacity: 0.5;
+  }
+  
+  .march-background-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .protection-img1{
+    margin-left: -10%;
+  }
+  
+  
+  .title {
+    margin-left: 1.8rem;
+    display: flex;
+    color: #484848;
+    font-size: 1.25rem;
+    font-family: "M PLUS 1", sans-serif;
+    font-weight: normal;
+    white-space: nowrap;
+  }
+  
+  .info-links {
+    color: #afafaf;
+    font-size: 1.25rem;
+    font-family: "M PLUS 1", sans-serif;
+  }
+  
+  .info-link:hover {
+    color: #909090;
+    text-decoration: none;
+  }
+  
+  .info-link {
+    color: #909090;
+    text-decoration: none;
+    line-height: 1.6rem;
+  }
+  
+  .title-link {
+    color: #484848;
+    text-decoration: none;
+    font-family: "M PLUS 1", sans-serif;
+  }
+  
+  .title-link:hover {
+    color: #484848;
+    text-decoration: none;
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .project-link {
+    color: #484848;
+    text-decoration: none;
+  
+    vertical-align: top;
+  
+    white-space: nowrap;
+  }
+  
+  .project-links {
+    text-align: right;
+    font-family: "M PLUS 1", sans-serif;
+    /* margin-top: 1rem; */
+    line-height: 1.6rem;
+  }
+  
+  .project-link:hover {
+    color: #484848;
+    text-decoration: none;
+  }
+  
+  li {
+    font-size: 0.938rem;
+    letter-spacing: 0px;
+  }
+  
+  .menu-button {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4rem 0 0 4rem;
+  }
+  
+  .current-page {
+    color: #909090;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .home-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 0.5rem; /* Adds spacing between child elements */
+      margin-left: -3rem;
+    }
+  
+    .background-gif {
+      z-index: -1;
+   
+     object-fit: cover;
+     position: fixed;
+     top:0;
+     object-position: center;
+     width: 100vw;
+     height: 100vh;
+    
+  
+    
+  
+    }
+  
+  
+  
+    .title {
+      margin-top: 2rem;
+      color: #484848;
+      font-size: 1.25rem;
+      font-family: "M PLUS 1", sans-serif;
+      font-weight: normal;
+      white-space: nowrap;
+      margin-left: 2rem;
+    }
+  
+    .menu-button {
+      font-weight: normal;
+      font-family: "M PLUS 1", sans-serif;
+      display: block;
+      margin-left: 2rem;
+      margin-top: 1rem;
+      background-color: transparent;
+      border: none;
+      color: #484848;
+      font-size: 20px;
+      text-decoration: none;
+    }
+    .info-links {
+      display: none;
+      text-align: left;
+    }
+  
+    .info-links.show {
+      display: block;
+    }
+  
+    .project-links {
+      display: none;
+      text-align: left;
+      margin-left: 2rem;
+    }
+  
+    .project-links.show {
+      display: block;
+      margin-top: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+  }

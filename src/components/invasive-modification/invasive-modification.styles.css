@@ -1,0 +1,174 @@
+.invasiveModification-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+   
+    margin-left: 3rem;
+  }
+  
+  .invasive-div1 {
+    width: 100%;
+  }
+  
+  .invasive-img1 {
+    width: 80%;
+    z-index: -1;
+    position: relative;
+  }
+  
+  .invasiveModification-header {
+    color: #484848;
+    font-size: 1.25rem;
+    font-weight: normal;
+    font-family: "M PLUS 1", sans-serif;
+    position: absolute;
+    top: 8.8rem;
+  }
+  
+  .card-images {
+    width: 45%;
+    z-index: 1;
+  }
+
+
+  
+  .invasive-video-wrapper {
+    z-index: 1;
+    width: 55%;
+    height: 100%;
+    margin-top: -110%;
+    margin-left: 50%;
+    position: relative;
+  }
+  
+  .video-text {
+    color: #484848;
+    font-size: 1.25rem;
+    font-weight: normal;
+    font-family: "M PLUS 1", sans-serif;
+    text-align: right;
+    overflow: hidden;
+    line-height: 1.25rem;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+   
+  }
+  
+  .card-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-top: -40%;
+    margin-left: 0;
+    gap: 2rem;
+  }
+  
+  .div4 p {
+    color: #484848;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 0.5rem;
+    font-family: "M PLUS 1", sans-serif;
+  }
+  
+  .carousel-bullets {
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 2%;
+    margin-left: 20%;
+    padding-bottom: 3rem;
+  }
+  
+  .carousel-bullet {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-color: #909090;
+    margin: 0 0.5rem;
+  }
+  
+  .active-bullet {
+    background-color: #909090;
+    transform: scale(1.5);
+  }
+  
+  @media (max-width: 767px) {
+    .invasiveModification-container {
+      display: flex;
+      flex-direction: column;
+    position: relative;
+  
+      
+  
+      
+    }
+  
+    .invasive-div1{
+      margin-left: -15%;
+      width: 100%;
+      margin-top: 40%;
+    }
+    .card-wrapper {
+      display: flex;
+      flex-direction: column;
+     margin-left: -5%;
+     margin-top: 120%;
+     
+   
+      
+    }
+  
+  
+  
+    .div4 p{
+      margin-left: -47%;
+      
+    }
+  
+    .div4 p:nth-child(1){
+      margin-top: 25%;
+      
+    }
+  
+    .invasiveModification-header{
+      margin-top: -30%;
+      width: 90%;
+    }
+  
+    .invasive-img1{
+      width: 100%;
+    }
+  
+    .invasive-video-wrapper{
+      width: 100%;
+      height: auto;
+      margin-top: -250%;
+      margin-left: 7%;
+    
+     
+    }
+  
+    .card-images{
+      width: 80%;
+      
+    }
+  
+    .carousel-bullets{
+    margin-top: -100%;
+    margin-left: 50%;
+    }
+  
+    .video-text{
+      margin-bottom: 10%;
+      text-align: left;
+      margin-left: 5%;
+    }
+   
+  
+  }

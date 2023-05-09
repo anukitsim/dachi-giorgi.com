@@ -1,0 +1,30 @@
+.hyphen-container {
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 800px;
+    z-index: 1;
+    margin-left: 4rem;
+    }
+    
+    @media (max-width: 767px) {
+    .hyphen-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+    z-index: 1;
+    margin: 0;
+    }
+    
+    .hyphen-img {
+    max-width: 100%;
+    object-fit: contain;
+    }
+    }
+    
+    
+    
+    
+    

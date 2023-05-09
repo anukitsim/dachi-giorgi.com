@@ -1,0 +1,17 @@
+.french-container{
+    margin-left: -12rem;
+    
+  }
+  
+  .french-img{
+    width: 130%;
+  }
+  @media (max-width: 767px){
+    .french-container{
+      margin-left: 0;
+      
+    }
+    .french-img{
+      width: 100%;
+    }
+  }
