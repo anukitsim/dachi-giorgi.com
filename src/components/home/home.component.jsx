@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import "./home.styles.css";
@@ -13,6 +13,8 @@ const Home = () => {
   const [showBackground, setShowBackground] = useState(false);
   const [showMarch32Background, setShowMarch32Background] = useState(false);
   const [playAudio, setPlayAudio] = useState(false);
+  const [audioContext, setAudioContext] = useState(null);
+
 
   const [showGif, setShowGif] = useState(false);
 
@@ -42,6 +44,9 @@ const Home = () => {
     setShowBackground(location.pathname === "/hyphen");
     setShowMarch32Background(location.pathname === "/march32");
     setPlayAudio(location.pathname === "/psr");
+
+    const audioCtx = new AudioContext();
+    setAudioContext(audioCtx);
 
     // if (location.pathname !== '/french-lessons') {
     //   body.classList.remove('french-lessons-body');
@@ -116,7 +121,25 @@ const Home = () => {
               playsInline
             />
           )}
-          {playAudio && <audio src={psrAudio} autoPlay loop playsInline />}
+         {playAudio && (
+  <audio
+    autoPlay
+    loop
+    playsInline
+    ref={(audio) => {
+      if (audio) {
+        // Create a new AudioNode from the audio element
+        const source = audioContext.createMediaElementSource(audio);
+        // Connect the AudioNode to the AudioContext's output
+        source.connect(audioContext.destination);
+        // Start playing the audio
+        audio.play();
+      }
+    }}
+  >
+    <source src={psrAudio} />
+  </audio>
+)}
 
           <div
             className={

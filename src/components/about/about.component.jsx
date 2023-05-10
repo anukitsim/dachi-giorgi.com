@@ -35,9 +35,10 @@ const About = () => {
             <p>karl-Marx-Straße 206 12055 • Berlin • Germany</p>
             <p>CONTACT</p>
             <p>
-              Dachigiorgigaruchava@gmail.com +49 157 53071293 • +995 557 600 769{" "}
+              Dachigiorgigaruchava@gmail.com 
             </p>
-            <p> Instagram • Facebook</p>
+            <p>+49 157 53071293 • +995 557 600 769{" "}</p>
+            <p> <a className="instagram-link" href="https://www.instagram.com/dagartyi/">Instagram</a> • <a className="facebook-link">Facebook</a></p>
             <p>EDUCATION</p>
             <p>
               2022-2023 • Universität der Künste Berlin • Product Design B.S.

@@ -25,6 +25,34 @@
     font-weight: normal;
 }
 
+.instagram-link{
+    color: #484848;
+    font-size: 1rem;
+    font-family: "M PLUS 1", sans-serif;
+    font-weight: normal;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.instagram-link:hover {
+    text-decoration: none;
+    color: #484848;
+}
+
+.facebook-link{
+    color: #484848;
+    font-size: 1rem;
+    font-family: "M PLUS 1", sans-serif;
+    font-weight: normal;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.facebook-link:hover {
+    text-decoration: none;
+    color: #484848;
+}
+
 @media screen and (max-width: 767px){
     .about-container{
         display: flex;
