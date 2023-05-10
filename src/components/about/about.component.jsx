@@ -38,7 +38,7 @@ const About = () => {
               Dachigiorgigaruchava@gmail.com 
             </p>
             <p>+49 157 53071293 • +995 557 600 769{" "}</p>
-            <p> <a className="instagram-link" href="https://www.instagram.com/dagartyi/">Instagram</a> • <a className="facebook-link">Facebook</a></p>
+            <p> <a className="instagram-link" href="https://www.instagram.com/dagartyi/">Instagram</a> • <a href="https://www.facebook.com/dachi.garuchava/" className="facebook-link">Facebook</a></p>
             <p>EDUCATION</p>
             <p>
               2022-2023 • Universität der Künste Berlin • Product Design B.S.
