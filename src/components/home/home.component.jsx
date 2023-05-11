@@ -61,15 +61,16 @@ const Home = () => {
  
   const handleAudioClick = () => {
     if (audioRef.current) {
-      audioRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
       if (audioRef.current.paused && !isMuted) {
         audioRef.current.play();
       } else if (!audioRef.current.paused && isMuted) {
         audioRef.current.pause();
       }
+      audioRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
     }
   };
+  
   
   return (
     <Container fluid>
@@ -147,7 +148,7 @@ const Home = () => {
 
     <button
       className="volume-icon-button"
-      onTouchStart={handleAudioClick}
+      onTouchEnd={handleAudioClick}
     >
       <FontAwesomeIcon
         icon={isMuted ? faVolumeMute : faVolumeUp}
