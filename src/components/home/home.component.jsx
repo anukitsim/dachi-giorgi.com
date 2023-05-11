@@ -69,11 +69,11 @@ const Home = () => {
         audioRef.current.pause();
       } else {
         audioRef.current.pause();
-        audioRef.current.muted = true;
       }
       setIsMuted(!isMuted);
     }
   };
+  
   
   
   return (
