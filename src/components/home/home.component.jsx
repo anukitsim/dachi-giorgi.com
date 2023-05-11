@@ -1,4 +1,4 @@
-import { useState, useEffec, useRef  } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import "./home.styles.css";
@@ -19,6 +19,8 @@ const Home = () => {
   const [showGif, setShowGif] = useState(false);
 
   const location = useLocation();
+  const audioRef = useRef(null);
+
 
   const toggleMobileMenu = () => {
     setIsMobileMenuVisible(!isMobileMenuVisible);
@@ -158,7 +160,7 @@ const Home = () => {
   Render the audio element only if the user is on desktop
   */}
 {!isMobile && playAudio && (
-  <audio src={psrAudio} autoPlay loop playsInline />
+  <audio src={psrAudio} ref={audioRef} autoPlay loop playsInline />
 )}
 
 
