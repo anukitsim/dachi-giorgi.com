@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffec, useRef  } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import "./home.styles.css";
@@ -58,16 +58,16 @@ const Home = () => {
   
  
   const handleAudioClick = () => {
-    const audioElement = document.getElementById("psr-audio");
-    if (audioElement) {
-      audioElement.muted = !isMuted;
+    if (audioRef.current) {
+      audioRef.current.muted = !isMuted;
       setIsMuted(!isMuted);
-      if (!isMuted) {
-        audioElement.play();
+      if (audioRef.current.paused && !isMuted) {
+        audioRef.current.play();
+      } else if (!audioRef.current.paused && isMuted) {
+        audioRef.current.pause();
       }
     }
   };
-  
   
   return (
     <Container fluid>
@@ -142,6 +142,7 @@ const Home = () => {
   */}
 {isMobile && showVolumeControls && (
   <div className="mobile-volume-controls">
+
     <button
       className="volume-icon-button"
       onClick={handleAudioClick}
