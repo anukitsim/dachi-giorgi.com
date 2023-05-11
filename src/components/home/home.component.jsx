@@ -137,11 +137,12 @@ const Home = () => {
   <div className="mobile-volume-controls">
     <button
       className="volume-icon-button"
-      onClick={toggleAudio}
+      
+      onClick={handleAudioClick}
     >
       <FontAwesomeIcon
         icon={playAudio ? faVolumeUp : faVolumeMute}
-        onClick={handleAudioClick}
+        onClick={toggleAudio}
       />
     </button>
   </div>
