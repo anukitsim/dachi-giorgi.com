@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import "./home.styles.css";
@@ -13,9 +13,6 @@ const Home = () => {
   const [showBackground, setShowBackground] = useState(false);
   const [showMarch32Background, setShowMarch32Background] = useState(false);
   const [playAudio, setPlayAudio] = useState(false);
-  const [audioContext, setAudioContext] = useState(null);
-  const audioRef = useRef(null);
-
 
   const [showGif, setShowGif] = useState(false);
 
@@ -46,42 +43,10 @@ const Home = () => {
     setShowMarch32Background(location.pathname === "/march32");
     setPlayAudio(location.pathname === "/psr");
 
-    const audioCtx = new AudioContext();
-    setAudioContext(audioCtx);
-
-    return () => {
-      if (audioContext) {
-        audioContext.close();
-      }
-    };
     // if (location.pathname !== '/french-lessons') {
     //   body.classList.remove('french-lessons-body');
     // }
-  }, [location.pathname, audioContext]);
-
-  useEffect(() => {
-    if (playAudio && audioContext) {
-      const xhr = new XMLHttpRequest();
-      xhr.open("GET", psrAudio, true);
-      xhr.responseType = "arraybuffer";
-      xhr.onload = function () {
-        audioContext.decodeAudioData(
-          xhr.response,
-          function (buffer) {
-            const source = audioContext.createBufferSource();
-            source.buffer = buffer;
-            source.connect(audioContext.destination);
-            source.start(0);
-            source.loop = false;
-          },
-          function (error) {
-            console.error(error);
-          }
-        );
-      };
-      xhr.send();
-    }
-  }, [playAudio, audioContext]);
+  }, [location.pathname]);
 
   return (
     <Container fluid>
@@ -151,37 +116,7 @@ const Home = () => {
               playsInline
             />
           )}
-      {playAudio && (
-  <audio
-    autoPlay
-    loop
-    playsInline
-    ref={(audio) => {
-      if (audio) {
-        // Create a new AudioNode from the audio element
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        const source = audioCtx.createBufferSource();
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', psrAudio);
-        xhr.responseType = 'arraybuffer';
-        xhr.addEventListener('load', function (r) {
-            audioCtx.decodeAudioData(
-                    xhr.response, 
-                    function (buffer) {
-                        source.buffer = buffer;
-                        source.connect(audioCtx.destination);
-                        source.loop = false;
-                    });
-            source.start(0);
-        });
-        xhr.send();
-        // Play the audio
-        audio.play();
-      }
-    }}
-  />
-)}
-
+          {playAudio && <audio src={psrAudio} autoPlay loop playsInline />}
 
           <div
             className={
