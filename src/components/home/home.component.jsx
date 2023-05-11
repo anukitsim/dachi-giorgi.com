@@ -147,7 +147,7 @@ const Home = () => {
 
     <button
       className="volume-icon-button"
-      onClick={handleAudioClick}
+      onTouchStart={handleAudioClick}
     >
       <FontAwesomeIcon
         icon={isMuted ? faVolumeMute : faVolumeUp}
