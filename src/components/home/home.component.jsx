@@ -53,7 +53,7 @@ const Home = () => {
 
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
   const showVolumeControls = isMobile && location.pathname === "/psr";
-  const toggleAudio = () => setPlayAudio(!playAudio);
+ 
 
   
  
@@ -144,16 +144,7 @@ const Home = () => {
   <div className="mobile-volume-controls">
     <button
       className="volume-icon-button"
-      onClick={() => {
-        const audioElement = document.getElementById("psr-audio");
-        if (audioElement) {
-          audioElement.muted = !isMuted;
-          setIsMuted(!isMuted);
-          if (!isMuted) {
-            audioElement.play();
-          }
-        }
-      }}
+      onClick={handleAudioClick}
     >
       <FontAwesomeIcon
         icon={isMuted ? faVolumeMute : faVolumeUp}
