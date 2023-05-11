@@ -7,6 +7,8 @@ import backgroundImg from "../../imgs/background-img.png";
 import march32Background from "../../imgs/march32.png";
 import gif from "../../gif/gif.mp4";
 import psrAudio from "../../audio/psr.mp3";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faVolumeMute, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
@@ -47,6 +49,8 @@ const Home = () => {
     //   body.classList.remove('french-lessons-body');
     // }
   }, [location.pathname]);
+
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
   return (
     <Container fluid>
@@ -116,7 +120,34 @@ const Home = () => {
               playsInline
             />
           )}
-          {playAudio && <audio src={psrAudio} autoPlay loop playsInline />}
+           {playAudio && (
+        <>
+          {/*
+            If the user is on mobile, add a volume control
+            */}
+          {/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+          ) ? (
+            <div className="mobile-volume-controls">
+              <button
+                className="volume-icon-button"
+                onClick={() => setPlayAudio(!playAudio)}
+              >
+                {playAudio ? (
+                  <i className="fas fa-volume-up"></i>
+                ) : (
+                  <i className="fas fa-volume-mute"></i>
+                )}
+              </button>
+            </div>
+          ) : (
+            /*
+              If the user is on desktop, autoplay the audio and do not show any controls
+            */
+            <audio src={psrAudio} autoPlay loop playsInline />
+          )}
+        </>
+      )}
 
           <div
             className={
