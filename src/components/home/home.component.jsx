@@ -15,7 +15,7 @@ const Home = () => {
   const [showBackground, setShowBackground] = useState(false);
   const [showMarch32Background, setShowMarch32Background] = useState(false);
   const [playAudio, setPlayAudio] = useState(false);
-
+  const [isMuted, setIsMuted] = useState(true);
   const [showGif, setShowGif] = useState(false);
 
   const location = useLocation();
@@ -45,6 +45,7 @@ const Home = () => {
     setShowMarch32Background(location.pathname === "/march32");
     setPlayAudio(location.pathname === "/psr");
 
+
     // if (location.pathname !== '/french-lessons') {
     //   body.classList.remove('french-lessons-body');
     // }
@@ -55,12 +56,18 @@ const Home = () => {
   const toggleAudio = () => setPlayAudio(!playAudio);
 
   
+ 
   const handleAudioClick = () => {
     const audioElement = document.getElementById("psr-audio");
-    if (audioElement && audioElement.paused) {
-      audioElement.play();
+    if (audioElement) {
+      audioElement.muted = !isMuted;
+      setIsMuted(!isMuted);
+      if (!isMuted) {
+        audioElement.play();
+      }
     }
   };
+  
   
   return (
     <Container fluid>
@@ -137,16 +144,24 @@ const Home = () => {
   <div className="mobile-volume-controls">
     <button
       className="volume-icon-button"
-      
-      onClick={handleAudioClick}
+      onClick={() => {
+        const audioElement = document.getElementById("psr-audio");
+        if (audioElement) {
+          audioElement.muted = !isMuted;
+          setIsMuted(!isMuted);
+          if (!isMuted) {
+            audioElement.play();
+          }
+        }
+      }}
     >
       <FontAwesomeIcon
-        icon={playAudio ? faVolumeUp : faVolumeMute}
-        onClick={toggleAudio}
+        icon={isMuted ? faVolumeMute : faVolumeUp}
       />
     </button>
   </div>
 )}
+
 {/*
   Render the audio element only if the user is on desktop
   */}
