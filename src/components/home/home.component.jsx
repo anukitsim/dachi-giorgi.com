@@ -51,6 +51,8 @@ const Home = () => {
   }, [location.pathname]);
 
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  const showVolumeControls = isMobile && location.pathname === "/psr";
+  const toggleAudio = () => setPlayAudio(!playAudio);
 
   return (
     <Container fluid>
@@ -120,34 +122,28 @@ const Home = () => {
               playsInline
             />
           )}
-           {playAudio && (
-        <>
-          {/*
-            If the user is on mobile, add a volume control
-            */}
-          {/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-            navigator.userAgent
-          ) ? (
-            <div className="mobile-volume-controls">
-              <button
-                className="volume-icon-button"
-                onClick={() => setPlayAudio(!playAudio)}
-              >
-                {playAudio ? (
-                  <i className="fas fa-volume-up"></i>
-                ) : (
-                  <i className="fas fa-volume-mute"></i>
-                )}
-              </button>
-            </div>
-          ) : (
-            /*
-              If the user is on desktop, autoplay the audio and do not show any controls
-            */
-            <audio src={psrAudio} autoPlay loop playsInline />
-          )}
-        </>
-      )}
+           {/*
+  Render the audio controls only if the user is on mobile
+  */}
+{isMobile && showVolumeControls && (
+  <div className="mobile-volume-controls">
+    <button
+      className="volume-icon-button"
+      onClick={toggleAudio}
+    >
+      <FontAwesomeIcon
+        icon={playAudio ? faVolumeUp : faVolumeMute}
+      />
+    </button>
+  </div>
+)}
+{/*
+  Render the audio element only if the user is on desktop
+  */}
+{!isMobile && playAudio && (
+  <audio src={psrAudio} autoPlay loop playsInline />
+)}
+
 
           <div
             className={

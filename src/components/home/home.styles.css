@@ -202,8 +202,26 @@
   .current-page {
     color: #909090;
   }
-  
+
+ 
   @media screen and (max-width: 767px) {
+    .mobile-volume-controls {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1;
+    }
+    
+    .mobile-volume-controls .volume-icon-button {
+      font-size: 2rem;
+    }
+    
+    .volume-icon-button {
+      background-color: transparent;
+    }
+    
+  
+   
     .home-container {
       display: flex;
       flex-direction: column;
