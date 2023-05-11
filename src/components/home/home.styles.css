@@ -218,6 +218,8 @@
     
     .volume-icon-button {
       background-color: transparent;
+      border: none;
+      color: black;
     }
     
   

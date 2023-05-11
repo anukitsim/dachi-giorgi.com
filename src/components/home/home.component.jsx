@@ -54,6 +54,14 @@ const Home = () => {
   const showVolumeControls = isMobile && location.pathname === "/psr";
   const toggleAudio = () => setPlayAudio(!playAudio);
 
+  
+  const handleAudioClick = () => {
+    const audioElement = document.getElementById("psr-audio");
+    if (audioElement && audioElement.paused) {
+      audioElement.play();
+    }
+  };
+  
   return (
     <Container fluid>
       <Row>
@@ -133,6 +141,7 @@ const Home = () => {
     >
       <FontAwesomeIcon
         icon={playAudio ? faVolumeUp : faVolumeMute}
+        onClick={handleAudioClick}
       />
     </button>
   </div>
