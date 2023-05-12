@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import "./home.styles.css";
@@ -7,22 +7,16 @@ import backgroundImg from "../../imgs/background-img.png";
 import march32Background from "../../imgs/march32.png";
 import gif from "../../gif/gif.mp4";
 import psrAudio from "../../audio/psr.mp3";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faVolumeMute, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
-import { isMobile } from 'react-device-detect';
-
 
 const Home = () => {
   const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
   const [showBackground, setShowBackground] = useState(false);
   const [showMarch32Background, setShowMarch32Background] = useState(false);
   const [playAudio, setPlayAudio] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
+
   const [showGif, setShowGif] = useState(false);
 
   const location = useLocation();
-  const audioRef = useRef(null);
-
 
   const toggleMobileMenu = () => {
     setIsMobileMenuVisible(!isMobileMenuVisible);
@@ -49,36 +43,11 @@ const Home = () => {
     setShowMarch32Background(location.pathname === "/march32");
     setPlayAudio(location.pathname === "/psr");
 
-
     // if (location.pathname !== '/french-lessons') {
     //   body.classList.remove('french-lessons-body');
     // }
   }, [location.pathname]);
 
-  
-  const showVolumeControls = isMobile && location.pathname === "/psr";
-
- 
-
-  
- 
-
-
-  const handleAudioClick = () => {
-    if (audioRef.current) {
-      if (audioRef.current.paused && isMuted) {
-        audioRef.current.play();
-        setIsMuted(false);
-      } else if (!audioRef.current.paused && !isMuted) {
-        audioRef.current.pause();
-        setIsMuted(true);
-      }
-    }
-  };
-  
-  
-  
-  
   return (
     <Container fluid>
       <Row>
@@ -147,31 +116,7 @@ const Home = () => {
               playsInline
             />
           )}
-           {/*
-  Render the audio controls only if the user is on mobile
-  */}
-{isMobile && showVolumeControls && (
-  <div className="mobile-volume-controls">
-
-<button
-  className="volume-icon-button"
-  onClick={handleAudioClick}
->
-  <FontAwesomeIcon
-    icon={isMuted ? faVolumeMute : faVolumeUp}
-  />
-</button>
-
-  </div>
-)}
-
-{/*
-  Render the audio element only if the user is on desktop
-  */}
-{!isMobile && playAudio && (
-  <audio src={psrAudio} ref={audioRef} autoPlay loop playsInline />
-)}
-
+          {playAudio && <audio src={psrAudio} autoPlay loop playsInline />}
 
           <div
             className={
