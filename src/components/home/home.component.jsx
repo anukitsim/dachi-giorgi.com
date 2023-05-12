@@ -9,6 +9,8 @@ import gif from "../../gif/gif.mp4";
 import psrAudio from "../../audio/psr.mp3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeMute, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
+import { isMobile } from 'react-device-detect';
+
 
 const Home = () => {
   const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
@@ -53,8 +55,9 @@ const Home = () => {
     // }
   }, [location.pathname]);
 
-  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  
   const showVolumeControls = isMobile && location.pathname === "/psr";
+
  
 
   
