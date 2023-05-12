@@ -59,26 +59,20 @@ const Home = () => {
 
   
  
-  const audioPlay = () => {
-    if (audioRef.current) {
-      audioRef.current.play();
-      setIsMuted(false);
-    }
-  };
+
 
   const handleAudioClick = () => {
     if (audioRef.current) {
-      if (audioRef.current.paused && !isMuted) {
-        audioPlay();
-      } else if (!audioRef.current.paused && isMuted) {
-        audioRef.current.pause();
-        setIsMuted(true);
-      } else {
+      if (audioRef.current.paused && isMuted) {
+        audioRef.current.play();
+        setIsMuted(false);
+      } else if (!audioRef.current.paused && !isMuted) {
         audioRef.current.pause();
         setIsMuted(true);
       }
     }
   };
+  
   
   
   
@@ -156,14 +150,15 @@ const Home = () => {
 {isMobile && showVolumeControls && (
   <div className="mobile-volume-controls">
 
-    <button
-      className="volume-icon-button"
-      onTouchStart={handleAudioClick}
-    >
-      <FontAwesomeIcon
-        icon={isMuted ? faVolumeMute : faVolumeUp}
-      />
-    </button>
+<button
+  className="volume-icon-button"
+  onClick={handleAudioClick}
+>
+  <FontAwesomeIcon
+    icon={isMuted ? faVolumeMute : faVolumeUp}
+  />
+</button>
+
   </div>
 )}
 
